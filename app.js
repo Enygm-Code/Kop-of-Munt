@@ -1,3 +1,4 @@
+consolole.log("APP STARTED");
 const MESSAGES = [
   "De munt werkt niet mee.",
   "Oei, er is blijkbaar een derde optie.",
