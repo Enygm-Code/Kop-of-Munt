@@ -59,6 +59,9 @@
 body{min-width:0}
 .shell{width:calc(100% - 28px)}
 @media(min-width:700px){.shell{width:calc(100% - 64px);max-width:880px}}
+.icon-button{width:auto;min-width:132px;min-height:43px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:0 15px;border:1px solid rgba(247,201,91,.3);border-radius:14px;background:linear-gradient(145deg,rgba(247,201,91,.13),rgba(255,255,255,.045));color:#f4e4b5;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.16);transition:background .2s,border-color .2s,box-shadow .2s,transform .2s}
+.icon-button span{color:var(--yellow);font-size:16px}
+.icon-button:hover{border-color:rgba(247,201,91,.58);background:linear-gradient(145deg,rgba(247,201,91,.22),rgba(255,255,255,.08));box-shadow:0 5px 18px rgba(0,0,0,.24);transform:translateY(-2px)}
 .animating .coin-object,.animating .bill-object{animation:none!important}
 
 .achievement-overlay{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;overflow:hidden;padding:24px;background:rgba(10,11,19,.78);backdrop-filter:blur(8px);animation:achievement-fade-in .25s ease-out both}
