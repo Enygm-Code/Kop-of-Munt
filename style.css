@@ -40,9 +40,9 @@
 @media(max-width:420px){.animation-stage{min-height:410px}.table-scene{left:2%;right:2%}.coin-object{width:104px;height:148px}.bill-object{width:min(220px,74vw)}}
 @media(prefers-reduced-motion:reduce){.animating .coin-object,.animating .coin-spinner,.animating .bill-object,.animating .landing-shadow{animation-duration:.01ms!important}.finished .coin-object{transform:translateY(18px) rotateX(5deg) rotateY(28deg) rotateZ(-8deg)}.finished .bill-object{transform:translateY(48px) rotateX(8deg) rotateY(24deg) rotateZ(-6deg) scale(.94)}}
 
-.coin-object{position:absolute;left:50%;bottom:96px;margin:0;transform-origin:50% 100%;transform:translateX(-50%) translateY(-80px) rotateY(24deg) rotateZ(-5deg)}
-.coin-object.idle{transform:translateX(-50%) translateY(-80px) rotateY(24deg) rotateZ(-5deg)}
-.finished .coin-object{transform:translateX(-50%) translateY(-12px) rotateY(85deg) rotateZ(-4deg)}
+.coin-object{position:absolute;left:50%;bottom:96px;margin:0;transform-origin:50% 100%;transform:translateX(-50%) translateY(14px) rotateY(85deg) rotateZ(-4deg)}
+.coin-object.idle{transform:translateX(-50%) translateY(14px) rotateY(85deg) rotateZ(-4deg)}
+.finished .coin-object{transform:translateX(-50%) translateY(14px) rotateY(85deg) rotateZ(-4deg)}
 .animating .coin-object{animation:coin-drop-to-table 2.8s cubic-bezier(.2,.72,.2,1) both}
 .finished .coin-spinner{transform:rotateY(0)}
 .bill-object{position:absolute;left:50%;bottom:96px;width:220px;height:auto;margin:0;transform-origin:50% 100%;transform:translateX(-50%) translateY(-80px) rotateY(24deg) rotateZ(-5deg)}
@@ -50,10 +50,10 @@
 .animating .bill-object{animation:bill-drift-to-table 2.8s cubic-bezier(.2,.72,.2,1) both}
 .landing-shadow{bottom:87px}
 .finished .landing-shadow{opacity:.72;transform:translateX(-50%) scale(1)}
-@keyframes coin-drop-to-table{0%{transform:translateX(-50%) translateY(-90vh) rotateY(0) rotateZ(-15deg) scale(.8)}16%{transform:translateX(-50%) translateY(-66vh) rotateY(-12deg) rotateZ(12deg) scale(.9)}33%{transform:translateX(-50%) translateY(-45vh) rotateY(10deg) rotateZ(-10deg) scale(1)}52%{transform:translateX(-50%) translateY(-24vh) rotateY(-8deg) rotateZ(8deg) scale(1)}70%{transform:translateX(-50%) translateY(-5vh) rotateY(12deg) rotateZ(-5deg) scale(1.03)}82%{transform:translateX(-50%) translateY(1px) rotateY(-5deg) rotateZ(3deg) scale(.98)}91%{transform:translateX(-50%) translateY(-16px) rotateY(4deg) rotateZ(-2deg) scale(1.01)}100%{transform:translateX(-50%) translateY(-12px) rotateY(85deg) rotateZ(-4deg) scale(1)}}
+@keyframes coin-drop-to-table{0%{transform:translateX(-50%) translateY(-90vh) rotateY(0) rotateZ(-15deg) scale(.8)}16%{transform:translateX(-50%) translateY(-66vh) rotateY(-12deg) rotateZ(12deg) scale(.9)}33%{transform:translateX(-50%) translateY(-45vh) rotateY(10deg) rotateZ(-10deg) scale(1)}52%{transform:translateX(-50%) translateY(-24vh) rotateY(-8deg) rotateZ(8deg) scale(1)}70%{transform:translateX(-50%) translateY(-5vh) rotateY(12deg) rotateZ(-5deg) scale(1.03)}82%{transform:translateX(-50%) translateY(14px) rotateY(-5deg) rotateZ(3deg) scale(.98)}91%{transform:translateX(-50%) translateY(-3px) rotateY(4deg) rotateZ(-2deg) scale(1.01)}100%{transform:translateX(-50%) translateY(14px) rotateY(85deg) rotateZ(-4deg) scale(1)}}
 @keyframes bill-drift-to-table{0%{transform:translateX(-50%) translateY(-90vh) rotateY(-30deg) rotateZ(-24deg) scale(.76);opacity:.85}15%{transform:translateX(-50%) translateY(-68vh) rotateY(38deg) rotateZ(32deg) scale(.84);opacity:1}31%{transform:translateX(-50%) translateY(-48vh) rotateY(-44deg) rotateZ(-35deg) scale(.92)}48%{transform:translateX(-50%) translateY(-29vh) rotateY(42deg) rotateZ(33deg) scale(1)}65%{transform:translateX(-50%) translateY(-11vh) rotateY(-36deg) rotateZ(-26deg)}78%{transform:translateX(-50%) translateY(2px) rotateY(25deg) rotateZ(18deg) scale(1.02)}89%{transform:translateX(-50%) translateY(-26px) rotateY(-13deg) rotateZ(-8deg) scale(.98)}100%{transform:translateX(-50%) translateY(-22px) rotateY(86deg) rotateZ(-4deg) scale(1)}}
 @media(max-width:420px){.coin-object{width:104px;height:148px}.bill-object{width:min(220px,74vw)}}
-@media(prefers-reduced-motion:reduce){.finished .coin-object{transform:translateX(-50%) translateY(-12px) rotateY(85deg) rotateZ(-4deg)}.finished .bill-object{transform:translateX(-50%) translateY(-22px) rotateY(86deg) rotateZ(-4deg)}}
+@media(prefers-reduced-motion:reduce){.finished .coin-object{transform:translateX(-50%) translateY(14px) rotateY(85deg) rotateZ(-4deg)}.finished .bill-object{transform:translateX(-50%) translateY(-22px) rotateY(86deg) rotateZ(-4deg)}}
 
 .hero-coin{width:91px;height:118px;filter:drop-shadow(0 12px 10px rgba(0,0,0,.35));transform:rotateY(37deg) rotateZ(-12deg)}
 .choice-card .choice-coin{width:32px;height:40px;filter:drop-shadow(0 4px 4px rgba(0,0,0,.35));transform:rotateY(40deg) rotateZ(-9deg)}
