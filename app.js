@@ -124,7 +124,7 @@ function showHome() {
     <div class="eyebrow">Kop of munt - Precision decision technology (of toch een beetje)</div>
     <div class="hero-art"><div class="coin-stage">${coinMarkup("hero-coin")}<div class="orbit"></div></div><span class="sparkle one">✦</span><span class="sparkle two">✧</span></div>
     <h1>Kop <span>of</span> Munt</h1>
-    <p class="tagline">Kiezen was nog nooit zo onmogelijk.</p>
+    <p class="tagline">Precision Decision Technology™ (of toch een beetje)</p>
     <div class="choice-grid">
       <button class="choice-card coin-choice" data-choice="coin">${coinMarkup("choice-coin")}<span class="choice-label">Munt</span><span class="choice-detail">Gooi de munt</span></button>
       <button class="choice-card bill-choice" data-choice="bill">${billMarkup("choice-bill")}<span class="choice-label">Briefje</span><span class="choice-detail">Laat 'm vallen</span></button>
