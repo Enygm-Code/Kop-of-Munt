@@ -121,7 +121,7 @@ function billMarkup(className = "bill-object") {
 
 function showHome() {
   app.innerHTML = `<section class="home-view">
-    <div class="eyebrow">Kop of munt - Precision decision technology (of toch een beetje)</div>
+    <div class="eyebrow">Kop of munt</div>
     <div class="hero-art"><div class="coin-stage">${coinMarkup("hero-coin")}<div class="orbit"></div></div><span class="sparkle one">✦</span><span class="sparkle two">✧</span></div>
     <h1>Kop <span>of</span> Munt</h1>
     <p class="tagline">Precision Decision Technology™ (of toch een beetje)</p>
