@@ -43,6 +43,7 @@ let state = loadState();
 let currentChoice = "coin";
 let busy = false;
 let toastTimer;
+const achievementQueue = [];
 
 function createInitialState() {
   return {
@@ -197,7 +198,7 @@ function runAttempt() {
     button.disabled = false;
     button.innerHTML = `<span aria-hidden="true">${isCoin ? "↗" : "↓"}</span> Nog een keer`;
     busy = false;
-    if (newlyUnlocked.length) showConfetti();
+    if (newlyUnlocked.length) showAchievementPopup(newlyUnlocked);
   }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 50 : (isCoin ? 2450 : 2600));
 }
 
@@ -256,7 +257,7 @@ function showStats() {
   app.querySelector("#stats-back").addEventListener("click", () => { window.location.hash = "home"; showHome(); });
   app.querySelector("#stats-home").addEventListener("click", () => { window.location.hash = "home"; showHome(); });
   app.querySelector("#reset-stats").addEventListener("click", resetStatistics);
-  if (newlyUnlocked.length) showConfetti();
+  if (newlyUnlocked.length) showAchievementPopup(newlyUnlocked);
 }
 
 function resetStatistics() {
@@ -282,6 +283,80 @@ function showConfetti() {
     layer.append(piece);
     window.setTimeout(() => piece.remove(), 2500);
   }
+}
+
+function showAchievementPopup(achievements) {
+  achievementQueue.push(...achievements);
+  if (!document.querySelector(".achievement-overlay")) showNextAchievementPopup();
+}
+
+function showNextAchievementPopup() {
+  const achievement = achievementQueue.shift();
+  if (!achievement) return;
+
+  showConfetti();
+  const overlay = document.createElement("div");
+  overlay.className = "achievement-overlay";
+  overlay.innerHTML = `<div class="achievement-fireworks" aria-hidden="true"></div>
+    <section class="achievement-popup" role="dialog" aria-modal="true" aria-labelledby="achievement-title" aria-describedby="achievement-description">
+      <button class="achievement-close" type="button" aria-label="Melding sluiten">×</button>
+      <div class="achievement-popup-icon" aria-hidden="true">${achievement.icon}</div>
+      <p class="achievement-popup-kicker">Achievement ontgrendeld!</p>
+      <h2 id="achievement-title">${escapeHtml(achievement.name)}</h2>
+      <p id="achievement-description">${escapeHtml(achievement.desc)}</p>
+      <button class="primary-button achievement-dismiss" type="button">Geweldig!</button>
+    </section>`;
+  document.body.append(overlay);
+
+  const fireworkLayer = overlay.querySelector(".achievement-fireworks");
+  const fireworkColors = ["#f7c95b", "#f49ab3", "#9ee2c3", "#b6a0ff", "#fff"];
+  for (const [x, y] of [[18, 30], [82, 26], [76, 72]]) {
+    const burst = document.createElement("span");
+    burst.className = "achievement-firework";
+    burst.style.left = `${x}%`;
+    burst.style.top = `${y}%`;
+    for (let index = 0; index < 14; index += 1) {
+      const particle = document.createElement("i");
+      particle.className = "achievement-firework-particle";
+      particle.style.setProperty("--angle", `${(360 / 14) * index}deg`);
+      particle.style.setProperty("--distance", `${-38 - Math.random() * 36}px`);
+      particle.style.setProperty("--firework-color", fireworkColors[index % fireworkColors.length]);
+      particle.style.animationDelay = `${Math.random() * 0.3}s`;
+      burst.append(particle);
+    }
+    fireworkLayer.append(burst);
+  }
+
+  const dismiss = () => {
+    overlay.remove();
+    window.removeEventListener("keydown", onKeydown);
+    showNextAchievementPopup();
+  };
+  const onKeydown = (event) => {
+    if (event.key === "Escape") {
+      dismiss();
+      return;
+    }
+    if (event.key === "Tab") {
+      const controls = [...overlay.querySelectorAll("button")];
+      const firstControl = controls[0];
+      const lastControl = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === firstControl) {
+        event.preventDefault();
+        lastControl.focus();
+      } else if (!event.shiftKey && document.activeElement === lastControl) {
+        event.preventDefault();
+        firstControl.focus();
+      }
+    }
+  };
+  overlay.querySelector(".achievement-dismiss").addEventListener("click", dismiss);
+  overlay.querySelector(".achievement-close").addEventListener("click", dismiss);
+  overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) dismiss();
+  });
+  window.addEventListener("keydown", onKeydown);
+  overlay.querySelector(".achievement-dismiss").focus();
 }
 
 function showToast(text) {
@@ -318,7 +393,7 @@ window.setInterval(() => {
   if (state.elapsedSeconds >= 600 && !state.unlocked.includes("time")) {
     const newlyUnlocked = unlockEligible();
     saveState();
-    if (newlyUnlocked.length) showConfetti();
+    if (newlyUnlocked.length) showAchievementPopup(newlyUnlocked);
   } else if (state.elapsedSeconds % 15 === 0) saveState();
 }, 1000);
 

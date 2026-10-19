@@ -62,3 +62,21 @@
 body{min-width:0}
 .shell{width:calc(100% - 28px)}
 @media(min-width:700px){.shell{width:calc(100% - 64px);max-width:880px}}
+
+.achievement-overlay{position:fixed;z-index:1000;inset:0;display:grid;place-items:center;overflow:hidden;padding:24px;background:rgba(10,11,19,.78);backdrop-filter:blur(8px);animation:achievement-fade-in .25s ease-out both}
+.achievement-popup{position:relative;z-index:2;width:min(100%,390px);padding:38px 28px 28px;border:1px solid rgba(247,201,91,.38);border-radius:26px;background:radial-gradient(ellipse at 50% 0,rgba(247,201,91,.16),transparent 58%),linear-gradient(150deg,#242536,#171923 72%);box-shadow:0 24px 80px rgba(0,0,0,.58),0 0 38px rgba(247,201,91,.13);text-align:center;animation:achievement-pop-in .4s cubic-bezier(.18,.8,.25,1.2) both}
+.achievement-close{position:absolute;top:12px;right:14px;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.05);color:var(--muted);font-size:22px;line-height:1;cursor:pointer}
+.achievement-close:hover{background:rgba(255,255,255,.12);color:white}
+.achievement-popup-icon{width:86px;height:86px;margin:0 auto 16px;display:grid;place-items:center;border:1px solid rgba(247,201,91,.38);border-radius:25px;background:rgba(247,201,91,.12);box-shadow:0 0 35px rgba(247,201,91,.2);font-size:48px;animation:achievement-icon-glow 1.8s ease-in-out infinite alternate}
+.achievement-popup-kicker{margin:0 0 8px;color:var(--yellow);font-size:12px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+.achievement-popup h2{margin:0;font-size:clamp(22px,6vw,29px);letter-spacing:-.7px}
+.achievement-popup p[id="achievement-description"]{margin:9px 0 0;color:var(--muted);font-size:14px;line-height:1.5}
+.achievement-dismiss{margin-top:24px}
+.achievement-fireworks{position:fixed;z-index:1;inset:0;overflow:hidden;pointer-events:none}
+.achievement-firework{position:absolute;width:1px;height:1px}
+.achievement-firework-particle{position:absolute;top:0;left:0;width:3px;height:13px;border-radius:999px;background:var(--firework-color);box-shadow:0 0 9px var(--firework-color);opacity:0;transform:translate(-50%,-50%) rotate(var(--angle)) translateY(0) scale(.3);animation:achievement-firework-burst 1.25s ease-out both}
+@keyframes achievement-fade-in{from{opacity:0}to{opacity:1}}
+@keyframes achievement-pop-in{from{opacity:0;transform:translateY(16px) scale(.88)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes achievement-icon-glow{from{box-shadow:0 0 18px rgba(247,201,91,.14)}to{box-shadow:0 0 38px rgba(247,201,91,.35)}}
+@keyframes achievement-firework-burst{0%{opacity:0;transform:translate(-50%,-50%) rotate(var(--angle)) translateY(0) scale(.3)}18%{opacity:1;transform:translate(-50%,-50%) rotate(var(--angle)) translateY(-8px) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) rotate(var(--angle)) translateY(var(--distance)) scale(.55)}}
+@media(prefers-reduced-motion:reduce){.achievement-overlay,.achievement-popup,.achievement-popup-icon,.achievement-firework-particle{animation:none}.achievement-firework-particle{display:none}}
