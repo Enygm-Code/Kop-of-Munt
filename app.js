@@ -84,11 +84,12 @@ function escapeHtml(value) {
 }
 
 function coinMarkup(className = "coin-object idle") {
-  const stars = `<path d="m35 50 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2zM145 48l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2zM152 137l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2zM32 139l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z" fill="#f8e8a1" stroke="#9c722d" stroke-width="1.5"/>`;
-  const rim = `<ellipse cx="90" cy="110" rx="68" ry="91" fill="url(#coin-silver)" stroke="#fff4d3" stroke-width="2"/><ellipse cx="90" cy="110" rx="61" ry="84" fill="url(#coin-gold)" stroke="#a56d2b" stroke-width="2"/><ellipse cx="90" cy="110" rx="50" ry="72" fill="url(#coin-center)" stroke="#f9e3a0" stroke-width="2"/>`;
-  const defs = `<defs><linearGradient id="coin-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2ad"/><stop offset=".3" stop-color="#eebc43"/><stop offset=".58" stop-color="#a96722"/><stop offset=".8" stop-color="#f8d66b"/><stop offset="1" stop-color="#9b5f20"/></linearGradient><linearGradient id="coin-silver" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".35" stop-color="#d9e0df"/><stop offset=".65" stop-color="#929b9c"/><stop offset=".85" stop-color="#f4f4ed"/><stop offset="1" stop-color="#8d9491"/></linearGradient><radialGradient id="coin-center"><stop stop-color="#ffe38a"/><stop offset=".68" stop-color="#e7b33d"/><stop offset="1" stop-color="#a96c28"/></radialGradient><filter id="coin-shadow" x="-30%" y="-20%" width="170%" height="160%"><feDropShadow dx="4" dy="9" stdDeviation="6" flood-color="#000" flood-opacity=".48"/></filter></defs>`;
-  const heads = `<svg class="coin-face-svg coin-heads" viewBox="0 0 180 220" role="img" aria-label="Kopzijde: nationale zijde van een 1-euromunt">${defs}<g filter="url(#coin-shadow)">${rim}<ellipse cx="90" cy="110" rx="44" ry="65" fill="none" stroke="#a87931" stroke-width="2"/>${stars}<path d="M69 129c-5-13-2-28 4-39 5-10 14-18 27-17 11 1 18 10 18 20l-7 5 9 7-4 14-9 2-3 13-12-5-2-8-12-1z" fill="#a56d2b" stroke="#f8e8a1" stroke-width="2"/><path d="M99 77c11 1 18 10 18 20l-7 5 9 7-4 14-9 2-3 13" fill="none" stroke="#fff2ad" stroke-width="2"/><text x="90" y="191" text-anchor="middle" fill="#704b20" font-family="Georgia,serif" font-size="12" font-weight="bold" letter-spacing="2">KOP</text></g></svg>`;
-  const tails = `<svg class="coin-face-svg coin-tails" viewBox="0 0 180 220" role="img" aria-label="Muntzijde: Europese zijde met 1 euro">${defs}<g filter="url(#coin-shadow)">${rim}<ellipse cx="90" cy="110" rx="48" ry="67" fill="none" stroke="#a87931" stroke-width="2"/>${stars}<path d="M59 92c9-13 20-18 30-18l8 8 10-5 10 8 13-2 9 12-7 9 7 10-11 8 1 11-11 6-8 12-14-5-12 5-9-11-12 2-4-12-11-6 5-11-7-11 8-10-4-10z" fill="#c58d32" stroke="#f7e5a1" stroke-width="2"/><path d="M62 104q20-17 42-7t39 0M61 119q25-14 49-4t31 1M75 83q-6 22 2 44t3 41M97 78q-5 24 3 47t4 35" fill="none" stroke="#f7e5a1" stroke-width="1.5" opacity=".85"/><text x="90" y="151" text-anchor="middle" fill="#fff0b0" stroke="#936122" stroke-width=".5" font-family="Georgia,serif" font-size="15" font-weight="bold">1 EURO</text><text x="90" y="191" text-anchor="middle" fill="#704b20" font-family="Georgia,serif" font-size="12" font-weight="bold" letter-spacing="2">MUNT</text></g></svg>`;
+  const stars = `<path d="m35 50 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2zM145 48l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2zM152 137l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2zM32 139l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z" fill="url(#coin-relief)" stroke="#8f5718" stroke-width="1.5"/>`;
+  const rim = `<ellipse cx="90" cy="110" rx="68" ry="91" fill="url(#coin-edge)" stroke="#fff0ad" stroke-width="2"/><ellipse cx="90" cy="110" rx="62" ry="85" fill="url(#coin-gold)" stroke="#98601c" stroke-width="2"/><ellipse cx="90" cy="110" rx="53" ry="76" fill="url(#coin-face)" stroke="#ffe397" stroke-width="2"/><ellipse cx="90" cy="110" rx="48" ry="71" fill="none" stroke="#9c641d" stroke-width="1.5"/><ellipse cx="90" cy="110" rx="45" ry="68" fill="none" stroke="#fff0a0" stroke-opacity=".7" stroke-width="1"/>`;
+  const reflection = `<path d="M46 74Q61 31 111 39Q78 51 66 97Z" fill="url(#coin-glint)" opacity=".62"/><path d="M119 151q17-17 15-42 12 34-4 51z" fill="#fff4bd" opacity=".34"/><ellipse cx="90" cy="110" rx="57" ry="80" fill="url(#coin-sheen)" opacity=".22"/>`;
+  const defs = `<defs><linearGradient id="coin-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff5bd"/><stop offset=".13" stop-color="#d99c28"/><stop offset=".28" stop-color="#ffdf72"/><stop offset=".46" stop-color="#a96514"/><stop offset=".62" stop-color="#ffe58a"/><stop offset=".78" stop-color="#c5831d"/><stop offset=".91" stop-color="#fff0a2"/><stop offset="1" stop-color="#885015"/></linearGradient><linearGradient id="coin-edge" x1="0" y1="0" x2="1" y2=".2"><stop stop-color="#774510"/><stop offset=".17" stop-color="#fff0a0"/><stop offset=".31" stop-color="#b87516"/><stop offset=".49" stop-color="#ffe58a"/><stop offset=".68" stop-color="#a05d13"/><stop offset=".84" stop-color="#ffdf70"/><stop offset="1" stop-color="#75430f"/></linearGradient><radialGradient id="coin-face" cx=".32" cy=".22" r=".82"><stop stop-color="#fff4ad"/><stop offset=".24" stop-color="#e8b93e"/><stop offset=".54" stop-color="#bd7b1d"/><stop offset=".78" stop-color="#f2cd59"/><stop offset="1" stop-color="#98601a"/></radialGradient><radialGradient id="coin-relief"><stop stop-color="#ffe58b"/><stop offset=".55" stop-color="#d09226"/><stop offset="1" stop-color="#754513"/></radialGradient><linearGradient id="coin-glint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".96"/><stop offset=".42" stop-color="#fff3bb" stop-opacity=".48"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><radialGradient id="coin-sheen"><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset=".84" stop-color="#fff4c2" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity=".08"/></radialGradient><filter id="coin-shadow" x="-35%" y="-30%" width="180%" height="180%"><feDropShadow dx="2" dy="7" stdDeviation="4" flood-color="#170d03" flood-opacity=".62"/></filter><filter id="coin-relief-shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur"/><feOffset dx="1" dy="2" result="offset"/><feComposite in="offset" in2="SourceAlpha" operator="out" result="shadow"/><feFlood flood-color="#6e4212" flood-opacity=".8" result="color"/><feComposite in="color" in2="shadow" operator="in" result="shadowColor"/><feMerge><feMergeNode in="shadowColor"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>`;
+  const heads = `<svg class="coin-face-svg coin-heads" viewBox="0 0 180 220" role="img" aria-label="Kopzijde: nationale zijde van een 1-euromunt">${defs}<g filter="url(#coin-shadow)">${rim}<g filter="url(#coin-relief-shadow)"><ellipse cx="90" cy="110" rx="44" ry="65" fill="none" stroke="#754811" stroke-width="4"/><ellipse cx="90" cy="108" rx="44" ry="65" fill="none" stroke="#ffe88b" stroke-width="2"/>${stars}<path d="M69 129c-5-13-2-28 4-39 5-10 14-18 27-17 11 1 18 10 18 20l-7 5 9 7-4 14-9 2-3 13-12-5-2-8-12-1z" fill="url(#coin-relief)" stroke="#774a13" stroke-width="3"/><path d="M99 77c11 1 18 10 18 20l-7 5 9 7-4 14-9 2-3 13" fill="none" stroke="#fff1a8" stroke-width="2"/></g>${reflection}<text x="90" y="191" text-anchor="middle" fill="#70420e" stroke="#ffd966" stroke-width=".6" paint-order="stroke" font-family="Georgia,serif" font-size="12" font-weight="bold" letter-spacing="2">KOP</text></g></svg>`;
+  const tails = `<svg class="coin-face-svg coin-tails" viewBox="0 0 180 220" role="img" aria-label="Muntzijde: Europese zijde met 1 euro">${defs}<g filter="url(#coin-shadow)">${rim}<g filter="url(#coin-relief-shadow)"><ellipse cx="90" cy="110" rx="48" ry="67" fill="none" stroke="#754811" stroke-width="4"/><ellipse cx="90" cy="108" rx="48" ry="67" fill="none" stroke="#ffe88b" stroke-width="2"/>${stars}<path d="M59 92c9-13 20-18 30-18l8 8 10-5 10 8 13-2 9 12-7 9 7 10-11 8 1 11-11 6-8 12-14-5-12 5-9-11-12 2-4-12-11-6 5-11-7-11 8-10-4-10z" fill="url(#coin-relief)" stroke="#704510" stroke-width="3"/><path d="M62 104q20-17 42-7t39 0M61 119q25-14 49-4t31 1M75 83q-6 22 2 44t3 41M97 78q-5 24 3 47t4 35" fill="none" stroke="#fff0a0" stroke-width="1.5" opacity=".9"/></g>${reflection}<text x="90" y="151" text-anchor="middle" fill="#fff0b0" stroke="#774811" stroke-width="1" paint-order="stroke" font-family="Georgia,serif" font-size="15" font-weight="bold">1 EURO</text><text x="90" y="191" text-anchor="middle" fill="#70420e" stroke="#ffd966" stroke-width=".6" paint-order="stroke" font-family="Georgia,serif" font-size="12" font-weight="bold" letter-spacing="2">MUNT</text></g></svg>`;
   return `<div class="${className}" aria-label="1-euromunt met herkenbare kop- en muntzijde"><div class="coin-spinner">${heads}${tails}</div></div>`;
 }
 
@@ -149,7 +150,7 @@ function showGame(choice) {
       ${isCoin ? coinMarkup() : `${billMarkup()}<div class="bill-edge" aria-label="Het briefje staat op zijn smalle rand"></div>`}
       <div class="table-scene" aria-hidden="true"><div class="table-top"></div><div class="table-apron"></div><div class="table-leg left"></div><div class="table-leg right"></div></div>
       <div class="landing-shadow" aria-hidden="true"></div>
-      <span class="stage-caption" id="stage-caption">${isCoin ? "Kop, munt... en dan die tafel." : "Een briefje, een vrije val en een tafel."}</span>
+      <span class="stage-caption" id="stage-caption">${isCoin ? "Kop... munt... kop... en dan op z'n kant." : "Een briefje, een vrije val en een tafel."}</span>
     </div>
     <button class="action-button" id="toss-button"><span aria-hidden="true">${isCoin ? "↗" : "↓"}</span> ${isCoin ? "Gooi de munt" : "Laat vallen"}</button>
     <div id="result-slot"></div>
@@ -165,6 +166,11 @@ function selectMessage() {
 
 function runAttempt() {
   if (busy) return;
+  if (!window.Matter) {
+    console.error("Matter.js is unavailable; the toss animation cannot run.");
+    showToast("De natuurkundige animatie is niet beschikbaar. Vernieuw de pagina en probeer opnieuw.");
+    return;
+  }
   busy = true;
   const stage = app.querySelector("#animation-stage");
   const button = app.querySelector("#toss-button");
@@ -172,11 +178,13 @@ function runAttempt() {
   const isCoin = currentChoice === "coin";
   button.disabled = true;
   button.innerHTML = "<span aria-hidden=\"true\">✦</span> Even kijken...";
-  caption.textContent = isCoin ? "Kop! Munt! Kop! Munt!" : "Het briefje dwarrelt naar beneden...";
+  caption.textContent = isCoin ? "Kop! Munt! Kop... en rechtop!" : "Het briefje dwarrelt naar beneden...";
   stage.classList.remove("finished");
   stage.classList.add("animating");
 
-  window.setTimeout(() => {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  animateMatterToss(stage, isCoin, reducedMotion).then(() => {
+    if (!stage.isConnected) return;
     stage.classList.remove("animating");
     stage.classList.add("finished");
     caption.textContent = isCoin ? "Op de rand. Kop noch munt. Natuurlijk." : "Op de smalle zijde geland. Natuurlijk.";
@@ -199,7 +207,124 @@ function runAttempt() {
     button.innerHTML = `<span aria-hidden="true">${isCoin ? "↗" : "↓"}</span> Nog een keer`;
     busy = false;
     if (newlyUnlocked.length) showAchievementPopup(newlyUnlocked);
-  }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 50 : (isCoin ? 2450 : 2600));
+  });
+}
+
+function animateMatterToss(stage, isCoin, reducedMotion) {
+  return new Promise((resolve) => {
+    const { Engine, Bodies, Body, Composite } = window.Matter;
+    const engine = Engine.create();
+    const stageBounds = stage.getBoundingClientRect();
+    const width = stageBounds.width;
+    const height = stageBounds.height;
+    const floorY = height - 96;
+    const bodyWidth = isCoin ? 13 : 190;
+    const bodyHeight = isCoin ? 132 : 106;
+    const target = { x: width / 2, y: floorY - bodyHeight / 2 };
+    const object = stage.querySelector(isCoin ? ".coin-object" : ".bill-object");
+    const spinner = isCoin ? object.querySelector(".coin-spinner") : null;
+    const landingShadow = stage.querySelector(".landing-shadow");
+    const duration = isCoin ? 3800 : 3200;
+    const body = Bodies.rectangle(target.x, target.y, bodyWidth, bodyHeight, {
+      density: isCoin ? 0.0018 : 0.00035,
+      friction: 0.38,
+      frictionAir: isCoin ? 0.002 : 0.012,
+      restitution: isCoin ? 0.38 : 0.48,
+      chamfer: { radius: isCoin ? 3 : 5 },
+    });
+    const floor = Bodies.rectangle(width / 2, floorY + 30, width + 200, 60, {
+      isStatic: true,
+      friction: 0.72,
+      restitution: 0.16,
+    });
+    Composite.add(engine.world, [body, floor]);
+    object.style.left = "50%";
+    object.style.top = "50%";
+    object.style.bottom = "auto";
+    if (reducedMotion) {
+      object.style.transform = `translate(-50%, -50%) translateY(${target.y - height / 2}px)`;
+      if (spinner) spinner.style.transform = "rotateY(90deg)";
+      landingShadow.style.opacity = ".72";
+      landingShadow.style.transform = "translateX(-50%) scale(1)";
+      Engine.clear(engine);
+      resolve();
+      return;
+    }
+
+    Body.setVelocity(body, { x: isCoin ? 0.8 : 1.4, y: isCoin ? -12 : -9.5 });
+    Body.setAngularVelocity(body, isCoin ? 0.075 : 0.12);
+    let startTime;
+    let frameId;
+    let lastTime;
+    let watchdog;
+    let finished = false;
+    if (spinner) spinner.style.animation = `coin-spin-wobble ${duration}ms cubic-bezier(.16,.72,.22,1) both`;
+
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      window.cancelAnimationFrame(frameId);
+      window.clearTimeout(watchdog);
+      Engine.clear(engine);
+      Composite.clear(engine.world, false, true);
+      object.style.transform = `translate(-50%, -50%) translate3d(0, ${target.y - height / 2}px, 0)`;
+      landingShadow.style.removeProperty("opacity");
+      landingShadow.style.removeProperty("transform");
+      if (spinner) {
+        spinner.style.animation = "none";
+        spinner.style.transform = "rotateY(90deg)";
+        object.style.filter = "";
+      } else {
+        object.style.removeProperty("top");
+        object.style.removeProperty("bottom");
+        object.style.removeProperty("left");
+        object.style.removeProperty("transform");
+        object.style.removeProperty("filter");
+      }
+      resolve();
+    };
+
+    const renderFrame = (timestamp) => {
+      if (startTime === undefined) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const delta = lastTime === undefined ? 1000 / 60 : Math.min(timestamp - lastTime, 1000 / 60);
+      lastTime = timestamp;
+      Engine.update(engine, delta);
+
+      const settleStart = duration - 700;
+      if (elapsed >= settleStart) {
+        const progress = Math.min((elapsed - settleStart) / (duration - settleStart), 1);
+        const eased = progress * progress * (3 - 2 * progress);
+        Body.setPosition(body, {
+          x: body.position.x + (target.x - body.position.x) * eased,
+          y: body.position.y + (target.y - body.position.y) * eased,
+        });
+        Body.setAngle(body, body.angle * (1 - eased));
+        Body.setVelocity(body, { x: body.velocity.x * (1 - eased), y: body.velocity.y * (1 - eased) });
+        Body.setAngularVelocity(body, body.angularVelocity * (1 - eased));
+      }
+
+      const offsetX = body.position.x - width / 2;
+      const offsetY = body.position.y - height / 2;
+      object.style.transform = `translate(-50%, -50%) translate3d(${offsetX}px, ${offsetY}px, 0) rotateZ(${body.angle}rad)`;
+      const impact = Math.min(Math.abs(body.velocity.y) / 18, 1);
+      const motionBlur = Math.max(impact, Math.min(Math.abs(body.angularVelocity) * 3, 1));
+      object.style.filter = `drop-shadow(0 8px 8px rgba(0,0,0,.4)) blur(${motionBlur * (isCoin ? 1.1 : 0.7)}px)`;
+      const shadowHeight = Math.abs(body.position.y - target.y);
+      landingShadow.style.opacity = String(Math.max(0.08, 0.7 - shadowHeight / height * 0.6));
+      landingShadow.style.transform = `translateX(-50%) scale(${0.6 + impact * 0.4})`;
+
+      if (elapsed < duration) {
+        frameId = window.requestAnimationFrame(renderFrame);
+        return;
+      }
+
+      finish();
+    };
+
+    watchdog = window.setTimeout(finish, duration + 250);
+    frameId = window.requestAnimationFrame(renderFrame);
+  });
 }
 
 function unlockEligible() {
